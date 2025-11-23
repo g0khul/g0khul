@@ -1,23 +1,19 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-// Home Page - Creative hero section like Lynn Fisher's site
+// Home Page - Creative hero section
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="flex flex-col justify-center items-center min-h-full gap-12 py-8">
       {/* Main Hero Text */}
-      <motion.div
-        className="hero-text"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h1 className="hero-name">GOKHUL</h1>
-        <h2 className="hero-tagline">
-          <span>server-side brain, client-side clarity</span>
-        </h2>
-      </motion.div>
+      <div className="text-center my-8">
+        <h1 className="text-[clamp(3rem,12vw,8rem)] font-black tracking-wider leading-tight m-0 uppercase">
+          GOKHUL
+        </h1>
+        <h1 className="text-[clamp(1.5rem,4vw,3rem)] font-bold tracking-wide leading-snug mt-4 mb-0 uppercase">
+          <span className="block">server-side brain, client-side clarity</span>
+        </h1>
+      </div>
     </div>
   );
 };

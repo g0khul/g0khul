@@ -29,29 +29,20 @@
   --color-light-primary-dark: #3500cc;
 
   /* Font Families */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-    monospace;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
 }
 
 /* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: var(--font-sans);
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode (Default) - Purple Background, Teal Text */
+/* Dark Mode (Default) */
 body.dark {
   background-color: var(--color-dark-bg);
   color: var(--color-dark-text);
@@ -65,7 +56,7 @@ body.dark a:hover {
   color: var(--color-dark-primary-light);
 }
 
-/* Light Mode - Lime Background, Blue Text */
+/* Light Mode */
 body.light {
   background-color: var(--color-light-bg);
   color: var(--color-light-text);
@@ -77,128 +68,4 @@ body.light a {
 
 body.light a:hover {
   color: var(--color-light-primary-light);
-}
-
-/* App Layout - Global Border Frame */
-.app-container {
-  min-height: calc(100vh - 2rem);
-  display: flex;
-  flex-direction: column;
-  border: 2px solid currentColor;
-  margin: 1rem;
-  padding: clamp(0.5rem, 3vw, 2rem);
-}
-
-/* Navigation Styles */
-.navigation {
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 1rem;
-  transition: opacity 0.2s ease;
-}
-
-.nav-links a:hover {
-  opacity: 0.7;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  background: none;
-  border: 2px solid currentColor;
-  color: inherit;
-  font-size: 0.875rem;
-  padding: 0.25rem 0.75rem;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  border-radius: 0;
-}
-
-.theme-toggle:hover {
-  opacity: 0.7;
-}
-
-/* Footer Styles */
-.footer {
-  margin-top: auto;
-  padding-top: 2rem;
-}
-
-.footer-container {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.footer-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer-label {
-  font-size: 0.875rem;
-  opacity: 0.7;
-  margin: 0;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  text-decoration: none;
-  font-size: 1rem;
-  transition: opacity 0.2s ease;
-}
-
-.footer-links a:hover {
-  opacity: 0.7;
-}
-
-.footer-contact {
-  margin-left: auto;
-}
-
-.contact-button {
-  display: inline-block;
-  padding: 0.5rem 1.5rem;
-  border: 2px solid currentColor;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: opacity 0.2s ease;
-  border-radius: 0;
-}
-
-.contact-button:hover {
-  opacity: 0.7;
-}
-
-main {
-  flex: 1;
-  padding: 0;
 }

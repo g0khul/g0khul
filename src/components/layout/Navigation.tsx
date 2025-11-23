@@ -1,21 +1,29 @@
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ui/ThemeToggle';
 
-// Main Navigation Bar - Minimal design like Lynn Fisher's site
+// Main Navigation Bar - Minimal design
 
 const Navigation = () => {
   return (
-    <nav className="navigation">
-      <div className="nav-container">
-        <Link to="/" className="nav-logo">
-          gokhul
+    <nav className="pb-6 mb-6">
+      <div className="flex justify-between items-center">
+        <Link to="/" className="text-xl font-semibold no-underline">
+          g0khul
         </Link>
 
-        <div className="nav-links">
-          <Link to="/about">about</Link>
-          <Link to="/work">work</Link>
-          <Link to="/thoughts">thoughts</Link>
-          <Link to="/contact">contact</Link>
+        <div className="flex gap-8 items-center">
+          <Link to="/about" className="no-underline text-base transition-opacity hover:opacity-70">
+            about
+          </Link>
+          <Link to="/work" className="no-underline text-base transition-opacity hover:opacity-70">
+            work
+          </Link>
+          <Link to="/thoughts" className="no-underline text-base transition-opacity hover:opacity-70">
+            thoughts
+          </Link>
+          <Link to="/contact" className="no-underline text-base transition-opacity hover:opacity-70">
+            contact
+          </Link>
           <ThemeToggle />
         </div>
       </div>
