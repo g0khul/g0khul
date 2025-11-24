@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useState, useEffect } from 'react';
-import { Theme } from '../types';
+import { createContext, type ReactNode, useState, useEffect } from "react";
+import type { Theme } from "../types";
 
 // Theme Context - Manages dark/light mode with localStorage
 
@@ -8,7 +8,9 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined
+);
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -17,8 +19,8 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   // Get theme from localStorage or default to 'dark'
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    return savedTheme || 'dark';
+    const savedTheme = localStorage.getItem("theme") as Theme;
+    return savedTheme || "dark";
   });
 
   // Apply theme class to body element
@@ -28,11 +30,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   // Save theme to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
 
   return (
