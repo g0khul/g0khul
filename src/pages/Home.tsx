@@ -1,7 +1,3 @@
-import { motion } from "framer-motion";
-
-// Home Page - Creative hero section
-
 const Home = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-full gap-12 py-8">
