@@ -13,7 +13,7 @@ export interface Project {
 export interface SocialLink {
   platform: string;
   url: string;
-  type: 'reach' | 'connect';
+  type: "reach" | "connect" | "miscellaneous";
 }
 
 export interface Experience {
@@ -25,4 +25,4 @@ export interface Experience {
   current?: boolean;
 }
 
-export type Theme = 'light' | 'dark';
+export type Theme = "light" | "dark";

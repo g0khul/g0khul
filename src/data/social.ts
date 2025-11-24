@@ -31,4 +31,14 @@ export const socialLinks: SocialLink[] = [
     url: "https://discord.com/users/g0khul",
     type: "connect",
   },
+  {
+    platform: "Substack",
+    url: "https://substack.com/@gokhul",
+    type: "miscellaneous",
+  },
+  {
+    platform: "Good Reads",
+    url: "https://www.goodreads.com/user/show/181066933-gokhul",
+    type: "miscellaneous",
+  },
 ];
