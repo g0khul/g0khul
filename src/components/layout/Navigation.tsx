@@ -11,6 +11,7 @@ import {
   menuItemAnimation,
   appleEase,
 } from "../../config/animations";
+import { LuGhost } from "react-icons/lu";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navigation = () => {
           transition={itemTransition}
         >
           <Link to="/" className="text-xl font-semibold no-underline">
-            gokhul
+            <LuGhost />
           </Link>
         </motion.div>
 

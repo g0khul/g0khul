@@ -16,6 +16,7 @@ function AnimatedRoutes() {
             path={route.path}
             element={
               <motion.div
+                className="flex-1 flex flex-col"
                 variants={pageVariants}
                 initial="initial"
                 animate="animate"

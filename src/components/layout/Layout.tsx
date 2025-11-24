@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-[calc(100vh-2rem)] flex flex-col border-2 border-current m-4 p-[clamp(0.5rem,3vw,2rem)]">
       <div className="max-w-7xl mx-auto w-full flex flex-col flex-1">
         <Navigation />
-        <main className="flex-1 p-0">{children}</main>
+        <main className="flex-1 flex flex-col p-0">{children}</main>
         <Footer />
       </div>
     </div>
