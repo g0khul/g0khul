@@ -3,7 +3,7 @@ import type { SocialLink } from "../types";
 // Social links
 export const socialLinks: SocialLink[] = [
   // Reach out
-  { platform: "Email", url: "mailto:your.email@example.com", type: "reach" },
+  { platform: "Email", url: "mailto:gokhul.tg@proton.me", type: "reach" },
   {
     platform: "Signal",
     url: "https://signal.me/#eu/DOlN-aQBAPF1udxWMg15HBFS_emaFCTWryMB9OQayH3LNFA0fdVIfbRBUMLLCrvm ",
