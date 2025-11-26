@@ -1,16 +1,27 @@
-// About page data
+import profileImage from "../assets/images/about/profile.png";
+
+interface Quote {
+  text: string;
+  author?: string;
+}
+
+export const quote: Quote = {
+  text: "Build it clearly, fix it calmly, and let the product speak for you.",
+  // author: "me",
+};
 
 export const bio = {
-  photo: "https://placehold.co/300x300/1a1a1a/ffffff?text=Photo",
+  photo: profileImage,
   paragraphs: [
-    `I'm a backend engineer who accidentally fell in love with clean UIs. Most of my days are spent architecting APIs, optimizing databases, and making sure servers don't catch fire at 3 AM.`,
-    `"Code is like humor. When you have to explain it, it's bad." — I live by this. Whether it's Python, Go, or TypeScript, I believe in writing code that speaks for itself. Currently obsessed with distributed systems and occasionally dabbling in React when the frontend folks need backup.`,
-    `When I'm not debugging production issues (we've all been there), you'll find me exploring new tech, contributing to open source, or writing about lessons learned the hard way. I believe in building things that just work — no magic, no mystery, just solid engineering.`,
+    `I am a full-stack developer who finds pleasure in comprehending how every component of a system works: the logic, data, the user interface, and the minor details people overlook but would overlook if they were incorrect. Building things with stability, consistency, and thoughtful assembly is something I enjoy.`,
+    `I'm still working on perfecting my frontend and design skills, and the main way to achieve that is by building projects, breaking them, and reworking them until they look and feel right. I care about clarity, good structure, and the kind of code that you don’t have to explain twice. I don’t ship things just to ship them.`,
+    `I keep pushing until it feels complete, intentional, and exactly how it should be. If there's a way to improve something, I'll make it better.`,
   ],
 };
 
 export interface TimelineEntry {
-  year: string;
+  startYear: string;
+  endYear?: string; // undefined means "Present"
   role: string;
   company: string;
   description: string;
@@ -65,31 +76,27 @@ export const killedByGokhul: KilledItem[] = [
 
 export const timeline: TimelineEntry[] = [
   {
-    year: "2024",
-    role: "Senior Backend Engineer",
-    company: "Tech Corp",
+    startYear: "Nov 2023",
+    // endYear undefined = Present
+    role: "Software Development Engineer I",
+    company: "Galvanize Global Education",
     description:
-      "Leading API architecture and scaling infrastructure to handle millions of requests.",
+      "Building and maintaining large-scale assessment systems, spanning backend logic, multi-step frontend flows, and automated feedback pipelines. Improved reliability with async processing and stronger testing practices that reduced post-release bugs by 60%. Led key parts of a legacy-to-modern rewrite, refactoring major endpoints and schemas end-to-end.",
   },
   {
-    year: "2023",
-    role: "Backend Engineer",
-    company: "StartupXYZ",
+    startYear: "Jun 2023",
+    endYear: "Sept 2023",
+    role: "Freelance Technical Trainer",
+    company: "Self Employed",
     description:
-      "Built core payment systems and real-time notification services.",
+      "Delivered technical training to students through structured lessons, live explanations, and hands-on problem-solving. Created practical, real-world exercises tailored to different skill levels to help students understand core programming concepts effectively.",
   },
   {
-    year: "2022",
+    startYear: "Feb 2023",
+    endYear: "Apr 2023",
     role: "Software Engineer",
-    company: "DevShop Inc",
+    company: "Technical Trainer Intern",
     description:
-      "Full-stack development with focus on backend services and database optimization.",
-  },
-  {
-    year: "2021",
-    role: "Junior Developer",
-    company: "CodeBase",
-    description:
-      "Started the journey. Learned to love clean code and hate merge conflicts.",
+      "Taught data structures focused problem solving to senior year students and guided them through competitive programming fundamentals. Mentored learners through live coding sessions, doubt-clearing, and weekly performance assessments.",
   },
 ];

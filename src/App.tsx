@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Layout from "./components/layout/Layout";
 import { routes } from "./config/routes";
 import { pageVariants, pageTransition } from "./config/animations";
+import { Analytics } from "@vercel/analytics/react";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -39,6 +40,7 @@ function App() {
       <Layout>
         <AnimatedRoutes />
       </Layout>
+      <Analytics />
     </BrowserRouter>
   );
 }

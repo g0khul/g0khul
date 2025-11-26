@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { bio, timeline, killedByGokhul } from "../data/about";
-import { socialLinks } from "../data/social";
-import { hoverAnimation, tapAnimation, appleEase } from "../config/animations";
+import { quote, bio, timeline, killedByGokhul } from "../data/about";
+import { tapAnimation, appleEase } from "../config/animations";
 
 interface BlogPost {
   title: string;
@@ -48,7 +47,7 @@ const About = () => {
 
   return (
     <div className="flex-1 flex flex-col gap-12 py-8">
-      {/* Top Section: Photo + Bio */}
+      {/* Top Section: Photo + Quote/Bio */}
       <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
         {/* Photo */}
         <motion.div
@@ -64,25 +63,41 @@ const About = () => {
           />
         </motion.div>
 
-        {/* Bio Paragraphs */}
-        <div className="flex flex-col gap-4">
-          {bio.paragraphs.map((paragraph, index) => (
-            <motion.p
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-                ease: appleEase,
-              }}
-              className={`text-base leading-relaxed m-0 ${
-                paragraph.startsWith('"') ? "italic opacity-90" : ""
-              }`}
-            >
-              {paragraph}
-            </motion.p>
-          ))}
+        {/* Quote + Bio */}
+        <div className="flex flex-col gap-6">
+          {/* Quote */}
+          <motion.blockquote
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: appleEase }}
+            className="border-l-2 border-current pl-6 py-2"
+          >
+            <p className="text-lg italic m-0">"{quote.text}"</p>
+            {quote.author && (
+              <footer className="text-sm opacity-60 mt-2">— {quote.author}</footer>
+            )}
+          </motion.blockquote>
+
+          {/* Bio Paragraphs */}
+          <div className="flex flex-col gap-4">
+            {bio.paragraphs.map((paragraph, index) => (
+              <motion.p
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: appleEase,
+                }}
+                className={`text-base leading-relaxed m-0 ${
+                  paragraph.startsWith('"') ? "italic opacity-90" : ""
+                }`}
+              >
+                {paragraph}
+              </motion.p>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -96,7 +111,7 @@ const About = () => {
           <div className="relative pl-6 border-l-2 border-current">
             {timeline.map((entry, index) => (
               <motion.div
-                key={entry.year}
+                key={entry.startYear + entry.company}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -110,7 +125,9 @@ const About = () => {
                 <div className="absolute -left-[calc(1.5rem+5px)] top-1 w-2 h-2 bg-current rounded-full" />
 
                 <div className="flex flex-col gap-1">
-                  <span className="text-sm opacity-60">{entry.year}</span>
+                  <span className="text-sm opacity-60">
+                    {entry.startYear} — {entry.endYear || "Present"}
+                  </span>
                   <h3 className="text-base font-semibold m-0">{entry.role}</h3>
                   <span className="text-sm opacity-80">{entry.company}</span>
                   <p className="text-sm opacity-70 m-0 mt-1">
@@ -122,39 +139,8 @@ const About = () => {
           </div>
         </div>
 
-        {/* Right Column: Social Links + Blog */}
+        {/* Right Column: Blog + Graveyard */}
         <div className="flex flex-col gap-8">
-          {/* Social Links */}
-          <div>
-            <h2 className="text-lg font-bold mb-6 uppercase tracking-wide">
-              Also Find Me On
-            </h2>
-            <div className="flex flex-wrap gap-4">
-              {socialLinks
-                .filter((link) => link.type === "miscellaneous")
-                .map((link, index) => (
-                  <motion.a
-                    key={link.platform}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: index * 0.05,
-                      ease: appleEase,
-                    }}
-                    whileHover={hoverAnimation}
-                    whileTap={tapAnimation}
-                    className="text-base no-underline"
-                  >
-                    {link.platform.toLowerCase()}
-                  </motion.a>
-                ))}
-            </div>
-          </div>
-
           {/* Substack Blog Posts */}
           <div>
             <h2 className="text-lg font-bold mb-6 uppercase tracking-wide">
