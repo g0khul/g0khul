@@ -1,6 +1,5 @@
 import type { Project } from "../types";
 
-// Placeholder projects - replace with your actual projects later
 export const projects: Project[] = [
   {
     id: "1",

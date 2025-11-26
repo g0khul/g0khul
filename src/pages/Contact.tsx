@@ -75,7 +75,6 @@ const Contact = () => {
     }
   };
 
-  // Already submitted within cooldown period
   if (alreadySubmitted) {
     return (
       <div className="flex-1 flex flex-col justify-center items-center gap-6 py-8">
@@ -100,7 +99,6 @@ const Contact = () => {
     );
   }
 
-  // Just submitted successfully
   if (submitted) {
     return (
       <div className="flex-1 flex flex-col justify-center items-center gap-6 py-8">
@@ -124,7 +122,6 @@ const Contact = () => {
 
   return (
     <div className="flex-1 flex flex-col justify-center items-center gap-8">
-      {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -139,7 +136,6 @@ const Contact = () => {
         </p>
       </motion.div>
 
-      {/* Form */}
       <motion.form
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -147,7 +143,6 @@ const Contact = () => {
         onSubmit={handleSubmit}
         className="w-full max-w-md flex flex-col gap-4"
       >
-        {/* Name */}
         <div className="flex flex-col gap-2">
           <label
             htmlFor="name"
@@ -167,7 +162,6 @@ const Contact = () => {
           />
         </div>
 
-        {/* Email */}
         <div className="flex flex-col gap-2">
           <label
             htmlFor="email"
@@ -187,7 +181,6 @@ const Contact = () => {
           />
         </div>
 
-        {/* Message */}
         <div className="flex flex-col gap-2">
           <label
             htmlFor="message"
@@ -207,14 +200,12 @@ const Contact = () => {
           />
         </div>
 
-        {/* Error Message */}
         {error && (
           <p className="text-red-500 text-sm text-center">
             Something went wrong. Please try again.
           </p>
         )}
 
-        {/* Submit */}
         <motion.button
           type="submit"
           disabled={isSubmitting}

@@ -20,23 +20,19 @@ const Home = () => {
     const interval = setInterval(() => {
       setCurrentTagline((prev) => (prev + 1) % taglines.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="flex flex-col justify-center items-center flex-1 gap-6 py-8">
-      {/* Main Name */}
       <h1 className="text-[clamp(3rem,12vw,8rem)] font-black tracking-wider leading-none m-0 uppercase">
         GOKHUL
       </h1>
 
-      {/* Playful Subtitle */}
       <p className="text-[clamp(0.875rem,2vw,1.25rem)] opacity-80 m-0">
         (server-side brain, client-side clarity)
       </p>
 
-      {/* Rotating Taglines */}
       <div className="h-8 flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.span

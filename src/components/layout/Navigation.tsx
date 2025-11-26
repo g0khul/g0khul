@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { LuGhost } from "react-icons/lu";
 import ThemeToggle from "../ui/ThemeToggle";
 import { navRoutes } from "../../config/routes";
 import {
@@ -11,7 +12,6 @@ import {
   menuItemAnimation,
   appleEase,
 } from "../../config/animations";
-import { LuGhost } from "react-icons/lu";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +29,6 @@ const Navigation = () => {
           </Link>
         </motion.div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8 items-center">
           {navRoutes.map((route) => (
             <motion.div
@@ -40,7 +39,7 @@ const Navigation = () => {
             >
               <Link
                 to={route.path}
-                className="no-underline text-base transition-all duration-300 hover:opacity-70"
+                className="no-underline text-base hover:opacity-70 transition-opacity"
               >
                 {route.label}
               </Link>
@@ -49,7 +48,6 @@ const Navigation = () => {
           <ThemeToggle />
         </div>
 
-        {/* Mobile Hamburger Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden flex flex-col justify-center items-center gap-1.5 p-2 bg-transparent border-0 cursor-pointer w-10 h-10"
@@ -58,31 +56,22 @@ const Navigation = () => {
         >
           <motion.span
             className="block w-6 h-0.5 bg-current"
-            animate={{
-              rotate: isMenuOpen ? 45 : 0,
-              y: isMenuOpen ? 4 : 0,
-            }}
+            animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 4 : 0 }}
             transition={itemTransition}
           />
           <motion.span
             className="block w-6 h-0.5 bg-current"
-            animate={{
-              opacity: isMenuOpen ? 0 : 1,
-            }}
+            animate={{ opacity: isMenuOpen ? 0 : 1 }}
             transition={{ duration: 0.2, ease: appleEase }}
           />
           <motion.span
             className="block w-6 h-0.5 bg-current"
-            animate={{
-              rotate: isMenuOpen ? -45 : 0,
-              y: isMenuOpen ? -4 : 0,
-            }}
+            animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -4 : 0 }}
             transition={itemTransition}
           />
         </motion.button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -98,16 +87,12 @@ const Navigation = () => {
                 initial={menuItemAnimation.initial}
                 animate={menuItemAnimation.animate}
                 exit={menuItemAnimation.exit}
-                transition={{
-                  duration: 0.3,
-                  delay: index * 0.1,
-                  ease: appleEase,
-                }}
+                transition={{ duration: 0.3, delay: index * 0.1, ease: appleEase }}
                 whileTap={tapAnimation}
               >
                 <Link
                   to={route.path}
-                  className="no-underline text-base transition-all duration-300 hover:opacity-70"
+                  className="no-underline text-base hover:opacity-70 transition-opacity"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {route.label}
@@ -118,11 +103,7 @@ const Navigation = () => {
               initial={menuItemAnimation.initial}
               animate={menuItemAnimation.animate}
               exit={menuItemAnimation.exit}
-              transition={{
-                duration: 0.3,
-                delay: navRoutes.length * 0.1,
-                ease: appleEase,
-              }}
+              transition={{ duration: 0.3, delay: navRoutes.length * 0.1, ease: appleEase }}
               className="pt-2"
             >
               <ThemeToggle />

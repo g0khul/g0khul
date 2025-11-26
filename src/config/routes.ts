@@ -19,7 +19,6 @@ export const routes: RouteConfig[] = [
   { path: "/contact", label: "contact", component: Contact },
 ];
 
-// Navigation routes for header
 export const navRoutes: RouteConfig[] = [
   { path: "/about", label: "about", component: About },
   { path: "/work", label: "work", component: Work },
